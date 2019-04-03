@@ -10,11 +10,12 @@ class App extends Component {
       name: 'React',
       movA:true,
       imA:true,
-      imB:true
-    };
+      imB:true,
+      anim:""}
   }
 
-  play() {
+  play =()=>{ 
+    this.setState({anim:"anim"});
     var playbutton = document.getElementById("play-button");
     var fashion = document.querySelector("#fashion video");
     fashion.removeAttribute("controls");
@@ -44,8 +45,9 @@ react = ()=> {
           <div id="vid-cover"></div>
         
           <figcaption>YGLF<span>Choose React</span></figcaption>
-           <img id="ia" style={{display:this.state.imB?"none":"static"}} src="https://res.cloudinary.com/ds9c5zpur/image/upload/v1554322703/danFace.png" />
-           <img id="ib" width="100" style={{display:!this.state.imA?"none":"static"}} src="  https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" onClick={this.react }/>
+          {!this.state.imB?
+           <img key="ia" id="ia" src="https://res.cloudinary.com/ds9c5zpur/image/upload/v1554322703/danFace.png" />:null}
+           <img className={this.state.anim} key="ib" id="ib" width="100" style={{display:!this.state.imA?"none":"static"}} src="  https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" onClick={this.react }/>
         </figure>
         <button onClick={this.play} id="play-button">Play</button>
          

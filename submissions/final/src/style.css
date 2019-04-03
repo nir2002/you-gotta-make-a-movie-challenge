@@ -85,4 +85,15 @@ button {
   position: absolute;
   top:50%;
   left:60%;
+ opacity: 0;
+}
+
+.anim{
+ animation-name: rect;
+  animation-duration: 8s;
+}
+
+@keyframes rect{
+  from {opacity:0}
+  to {opacity:1}
 }
